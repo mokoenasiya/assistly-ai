@@ -168,8 +168,8 @@ export async function generateMeetingSummary(notes: string): Promise<MeetingResu
       );
       return {
         task: line.replace(/^[-•*]\s*/, "").replace(/[.]$/, ""),
-        owner: ownerMatch ? ownerMatch[1] : "Unassigned",
-        due: dueMatch ? titleCase(dueMatch[1]) : "No date set",
+        owner: ownerMatch?.[1] ?? "Unassigned",
+        due: dueMatch?.[1] ? titleCase(dueMatch[1]) : "No date set",
       };
     });
 
